@@ -53,7 +53,7 @@ if prompt := st.chat_input("Scrivi qui la tua risposta o domanda..."):
     Ecco la tua base di conoscenza: {pdf_text}
     """
     
-    model = genai.GenerativeModel('gemini-1.5-flash', system_instruction=system_instruction)
+    model = genai.GenerativeModel('models/gemini-1.5-flash-latest', system_instruction=system_instruction)
     chat_history = [{"role": m["role"] if m["role"] == "user" else "model", "parts": [m["content"]]} for m in st.session_state.messages[:-1]]
     
     chat = model.start_chat(history=chat_history)
